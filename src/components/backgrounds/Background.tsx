@@ -13,7 +13,7 @@ const Background = () => {
         fill
         sizes="100vw"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-white/70 to-white/90"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-white/80 to-white/90"></div>
     </div>
   );
 };

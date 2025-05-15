@@ -40,7 +40,7 @@ export default function InteractiveText({
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <h2 className={`${className} px-4`}>
+    <p className={className}>
       {text.split("").map((letter, index) => (
         <span
           key={index}
@@ -62,6 +62,6 @@ export default function InteractiveText({
           {letter === " " ? "\u00A0" : letter}
         </span>
       ))}
-    </h2>
+    </p>
   );
 }

@@ -35,7 +35,7 @@ export default function YouTubeGallery() {
       {videos.map(({ id, client }) => (
         <Dialog key={id}>
           <DialogTrigger asChild>
-            <Card className="overflow-hidden group relative p-0 rounded-none border-none shadow-none cursor-pointer hover:scale-[0.98] transition-all duration-800">
+            <Card className="gallery-item overflow-hidden group relative p-0 rounded-none border-none shadow-none cursor-pointer hover:scale-[0.98] transition-all duration-800">
               <CardContent className="p-0">
                 <AspectRatio ratio={16 / 9}>
                   <Image

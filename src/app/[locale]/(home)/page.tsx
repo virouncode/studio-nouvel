@@ -41,10 +41,11 @@ export default function Home() {
         </nav>
       </section>
       <div className="absolute bottom-8 right-8 flex items-center gap-4">
-        <LocaleButton />
+        <LocaleButton className="bg-white text-black border-slate-300 border hover:bg-slate-200" />
         <Link
           href="https://www.instagram.com/studio_nouvel/#"
           className="hover:opacity-80"
+          target="_blank"
         >
           <Instagram size={30} />
         </Link>
