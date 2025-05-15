@@ -88,7 +88,9 @@ const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
           >
             {t("un-projet-dont-vous-voulez-nous-parler")}
           </p>
-          <p className={`${helvetica.className}  text-3xl text-center mb-10`}>
+          <p
+            className={`${helvetica.className}  text-xl md:text-3xl text-center mb-10`}
+          >
             {t("contactez")}{" "}
             <span className="text-[#EB4642]">Studio Nouvel</span>
           </p>
