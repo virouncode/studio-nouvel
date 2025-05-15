@@ -9,34 +9,25 @@ import Link from "next/link";
 export default function Home() {
   const t = useTranslations("header");
   return (
-    <main className="flex flex-col items-center justify-between h-dvh w-full relative p-24">
+    <main className="flex flex-col items-center justify-between h-dvh w-full relative p-10 md:p-24">
       <Background />
-      <section className="container h-full w-full flex items-center justify-end">
-        <nav className="flex flex-col">
+      <section className="container h-full w-full flex items-center justify-center md:justify-end">
+        <nav className="text-3xl md:text-6xl flex flex-col font-bold gap-2">
           <IntlLink href="/image">
             <InteractiveText
               text={t("musique-a-limage")}
-              className={`text-6xl font-bold mb-2 cursor-pointer`}
+              className="cursor-pointer"
             />
           </IntlLink>
           <IntlLink href="/albums">
-            <InteractiveText
-              text={t("albums")}
-              className={`text-6xl font-bold mb-2 cursor-pointer`}
-            />
+            <InteractiveText text={t("albums")} className="cursor-pointer" />
           </IntlLink>
 
           <IntlLink href="/equipe">
-            <InteractiveText
-              text={t("lequipe")}
-              className={`text-6xl font-bold mb-2 cursor-pointer`}
-            />
+            <InteractiveText text={t("lequipe")} className="cursor-pointer" />
           </IntlLink>
           <IntlLink href="/contact">
-            <InteractiveText
-              text={t("contact")}
-              className={`text-6xl font-bold mb-2 cursor-pointer`}
-            />
+            <InteractiveText text={t("contact")} className="cursor-pointer" />
           </IntlLink>
         </nav>
       </section>
