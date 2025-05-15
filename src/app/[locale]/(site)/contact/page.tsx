@@ -3,7 +3,7 @@ import ContactButtons from "@/components/buttons/contact-buttons";
 import InteractiveText from "@/components/InteractiveText";
 import { routing } from "@/i18n/routing";
 import { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import localFont from "next/font/local";
 
 export const generateMetadata = async ({
@@ -72,6 +72,7 @@ export function generateStaticParams() {
 const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations("contact");
   return (
     <main className="flex flex-col items-center justify-between min-h-[calc(100vh-4rem)] w-full relative p-8 md:p-16">
       <Background />
@@ -85,10 +86,11 @@ const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
           <p
             className={`${helvetica.className} text-3xl md:text-5xl mb-10 text-center`}
           >
-            Un projet dont vous voulez nous parler ?
+            {t("un-projet-dont-vous-voulez-nous-parler")}
           </p>
           <p className={`${helvetica.className}  text-3xl text-center mb-10`}>
-            Contactez <span className="text-[#EB4642]">Studio Nouvel</span>
+            {t("contactez")}{" "}
+            <span className="text-[#EB4642]">Studio Nouvel</span>
           </p>
           <ContactButtons />
         </div>

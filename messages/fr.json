@@ -5,5 +5,10 @@
     "albums": "Albums",
     "lequipe": "Notre équipe",
     "contact": "Contact"
+  },
+  "contact": {
+    "un-projet-dont-vous-voulez-nous-parler": "Un projet dont vous voulez nous parler ?",
+    "contactez": "Contactez",
+    "par-email": "Par email"
   }
 }

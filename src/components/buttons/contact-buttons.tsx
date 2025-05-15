@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Mail, Phone } from "lucide-react";
+import { useTranslations } from "next-intl";
 import localFont from "next/font/local";
 
 const helvetica = localFont({
@@ -30,6 +31,7 @@ const helvetica = localFont({
 });
 
 const ContactButtons = () => {
+  const t = useTranslations("contact");
   const handleEmailClick = () => {
     window.location.href = "mailto:contact@studionouvel.com";
   };
@@ -46,7 +48,7 @@ const ContactButtons = () => {
         variant="destructive"
       >
         <Mail size={20} className="relative top-[-1px]" />
-        <span className="relative top-[1px]">Par email</span>
+        <span className="relative top-[1px]">{t("par-email")}</span>
       </Button>
       <Button
         onClick={handlePhoneClick}
