@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
-import { NextIntlClientProvider, useLocale } from "next-intl";
+import { routing } from "@/i18n/routing";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import { Inter } from "next/font/google";
+import { notFound } from "next/navigation";
 import "../globals.css";
 
 const inter = Inter({
@@ -8,17 +10,19 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-export const metadata: Metadata = {
-  title: "Studio Nouvel",
-  description: "Studio Nouvel - Musique à l'image - Albums = Enregistrement",
-};
-
-export default function RootLayout({
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
-  const locale = useLocale();
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+  // Enable static rendering
+  setRequestLocale(locale);
   return (
     <html lang={locale}>
       <body className={`${inter.className}  antialiased`}>

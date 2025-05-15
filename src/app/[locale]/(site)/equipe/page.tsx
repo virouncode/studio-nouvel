@@ -1,4 +1,6 @@
+import { routing } from "@/i18n/routing";
 import { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 
 export const generateMetadata = async ({
   params,
@@ -37,8 +39,14 @@ export const generateMetadata = async ({
   };
 };
 
-const page = () => {
-  return <div></div>;
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  return <div>Notre équipe</div>;
 };
 
 export default page;

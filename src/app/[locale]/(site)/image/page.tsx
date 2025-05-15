@@ -1,4 +1,6 @@
+import { routing } from "@/i18n/routing";
 import { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import YouTubeGallery from "./YoutubeGallery";
 
 export const generateMetadata = async ({
@@ -38,7 +40,13 @@ export const generateMetadata = async ({
   };
 };
 
-const page = () => {
+export const generateStaticParams = () => {
+  return routing.locales.map((locale) => ({ locale }));
+};
+
+const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <main className="min-h-[calc(100vh-4rem)] bg-black">
       <YouTubeGallery />

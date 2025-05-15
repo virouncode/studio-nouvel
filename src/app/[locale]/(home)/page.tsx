@@ -2,9 +2,10 @@ import Background from "@/components/backgrounds/Background";
 import LocaleButton from "@/components/buttons/locale-button";
 import InteractiveText from "@/components/InteractiveText";
 import { Link as IntlLink } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
 import { Instagram } from "lucide-react";
 import { Metadata } from "next";
-import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Link from "next/link";
 
 export const generateMetadata = async ({
@@ -41,8 +42,14 @@ export const generateMetadata = async ({
   };
 };
 
-export default function Home() {
-  const t = useTranslations("header");
+export const generateStaticParams = () => {
+  return routing.locales.map((locale) => ({ locale }));
+};
+
+const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("header");
   return (
     <main className="flex flex-col items-center justify-between h-dvh w-full relative p-10 md:p-24">
       <Background />
@@ -78,4 +85,6 @@ export default function Home() {
       </div>
     </main>
   );
-}
+};
+
+export default page;

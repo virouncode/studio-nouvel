@@ -10,7 +10,6 @@ import {
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { LocaleType, routing } from "@/i18n/routing";
 import { useLocale } from "next-intl";
-import { useSearchParams } from "next/navigation";
 
 type LocaleButtonProps = {
   className?: string;
@@ -21,14 +20,9 @@ const LocaleButton = ({ className }: LocaleButtonProps) => {
   const router = useRouter();
   const pathname = usePathname();
   // const params = useParams();
-  const searchParams = useSearchParams();
 
   const handleChangeLang = (newLocale: LocaleType) => {
     if (newLocale === locale) return;
-    const query: Record<string, string> = {};
-    searchParams.forEach((value, key) => {
-      query[key] = value;
-    });
     router.replace({ pathname }, { locale: newLocale });
 
     // if (pathname === "/services/[slug]") {

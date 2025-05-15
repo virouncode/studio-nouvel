@@ -1,7 +1,9 @@
 import Background from "@/components/backgrounds/Background";
 import ContactButtons from "@/components/buttons/contact-buttons";
 import InteractiveText from "@/components/InteractiveText";
+import { routing } from "@/i18n/routing";
 import { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import localFont from "next/font/local";
 
 export const generateMetadata = async ({
@@ -63,7 +65,13 @@ const helvetica = localFont({
   ],
 });
 
-const ContactPage = () => {
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <main className="flex flex-col items-center justify-between min-h-[calc(100vh-4rem)] w-full relative p-8 md:p-16">
       <Background />
@@ -101,4 +109,4 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage;
+export default page;
