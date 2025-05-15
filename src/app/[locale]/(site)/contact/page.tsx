@@ -1,10 +1,42 @@
-"use client";
-
 import Background from "@/components/backgrounds/Background";
+import ContactButtons from "@/components/buttons/contact-buttons";
 import InteractiveText from "@/components/InteractiveText";
-import { Button } from "@/components/ui/button";
-import { Mail, Phone } from "lucide-react";
+import { Metadata } from "next";
 import localFont from "next/font/local";
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> => {
+  const { locale } = await params;
+  const urlFr = `https://www.studionouvel.com/fr/contact`;
+  const urlEn = `https://www.studionouvel.com/en/contact`;
+  return {
+    title: "Contact | Studio Nouvel",
+    description:
+      locale === "fr"
+        ? "Studio Nouvel : contactez-nous pour votre projet musical"
+        : "Studio Nouvel: contact-us for your musical project",
+    openGraph: {
+      images: [
+        {
+          url: "/img/logo_studio_black.png",
+          width: 1200,
+          height: 630,
+          alt: "Logo Studio Nouvel",
+        },
+      ],
+    },
+    alternates: {
+      canonical: locale === "fr" ? urlFr : urlEn,
+      languages: {
+        en: urlEn,
+        fr: urlFr,
+      },
+    },
+  };
+};
 
 const helvetica = localFont({
   src: [
@@ -32,14 +64,6 @@ const helvetica = localFont({
 });
 
 const ContactPage = () => {
-  const handleEmailClick = () => {
-    window.location.href = "mailto:contact@studionouvel.com";
-  };
-
-  const handlePhoneClick = () => {
-    window.location.href = "tel:+33695582901";
-  };
-
   return (
     <main className="flex flex-col items-center justify-between min-h-[calc(100vh-4rem)] w-full relative p-8 md:p-16">
       <Background />
@@ -58,24 +82,7 @@ const ContactPage = () => {
           <p className={`${helvetica.className}  text-3xl text-center mb-10`}>
             Contactez <span className="text-[#EB4642]">Studio Nouvel</span>
           </p>
-          <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-            <Button
-              onClick={handleEmailClick}
-              className={`${helvetica.className} text-lg py-6 px-8 flex items-center gap-2 cursor-pointer w-[250px]`}
-              variant="destructive"
-            >
-              <Mail size={20} className="relative top-[-1px]" />
-              <span className="relative top-[1px]">Par email</span>
-            </Button>
-            <Button
-              onClick={handlePhoneClick}
-              className={`${helvetica.className} text-lg py-6 px-8 flex items-center gap-2 cursor-pointer w-[250px]`}
-              variant="destructive"
-            >
-              <Phone size={20} className="relative top-[-1px]" />
-              <span className="relative top-[1px]">+33 6 95 58 29 01</span>
-            </Button>
-          </div>
+          <ContactButtons />
         </div>
 
         <div className="w-full lg:w-1/2 h-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-lg">

@@ -3,8 +3,43 @@ import LocaleButton from "@/components/buttons/locale-button";
 import InteractiveText from "@/components/InteractiveText";
 import { Link as IntlLink } from "@/i18n/navigation";
 import { Instagram } from "lucide-react";
+import { Metadata } from "next";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> => {
+  const { locale } = await params;
+  const urlFr = `https://www.studionouvel.com/fr`;
+  const urlEn = `https://www.studionouvel.com/en`;
+  return {
+    title: "Home | Studio Nouvel",
+    description:
+      locale === "fr"
+        ? "Studio Nouvel : une équipe de compositeurs, réalisateurs, musiciens et ingénieurs du son au service de votre projet musical"
+        : "Studio Nouvel: a Paris-based team of composers, directors, musicians, and sound engineers dedicated to your musical project.",
+    openGraph: {
+      images: [
+        {
+          url: "/img/logo_studio_black.png",
+          width: 1200,
+          height: 630,
+          alt: "Logo Studio Nouvel",
+        },
+      ],
+    },
+    alternates: {
+      canonical: locale === "fr" ? urlFr : urlEn,
+      languages: {
+        en: urlEn,
+        fr: urlFr,
+      },
+    },
+  };
+};
 
 export default function Home() {
   const t = useTranslations("header");
