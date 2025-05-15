@@ -1,0 +1,29 @@
+@keyframes horizontalExpand {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes horizontalCollapse {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+.dialog-content-horizontal {
+  transform-origin: center;
+}
+
+.dialog-content-horizontal[data-state="open"] {
+  animation: horizontalExpand 0.3s ease forwards;
+}
+
+.dialog-content-horizontal[data-state="closed"] {
+  animation: horizontalCollapse 0.3s ease forwards;
+}

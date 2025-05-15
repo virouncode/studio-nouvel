@@ -1,6 +1,10 @@
 {
-  "HomePage": {
-    "title": "Hello world!",
-    "about": "Go to the about page"
+  "header": {
+    "logo-studio-nouvel": "studio nouvel logo",
+    "musique-a-limage": "Music for visual media",
+    "albums": "Records",
+    "le-studio": "The studio",
+    "lequipe": "Our team",
+    "contact": "Contact"
   }
 }
