@@ -31,7 +31,7 @@ const videos = [
 
 export default function YouTubeGallery() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 container mx-auto sm:px-6">
       {videos.map(({ id, client }) => (
         <Dialog key={id}>
           <DialogTrigger asChild>

@@ -74,17 +74,17 @@ const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
   setRequestLocale(locale);
   const t = await getTranslations("contact");
   return (
-    <main className="flex flex-col items-center justify-between min-h-[calc(100vh-4rem)] w-full relative p-8 md:p-16">
+    <main className="flex flex-col items-center justify-between min-h-[calc(100vh-4rem)] w-full relative py-8 md:py-16">
       <Background />
-      <section className="container h-full w-full flex flex-col lg:flex-row justify-between gap-12 z-10">
+      <section className="container h-full w-full flex flex-col lg:flex-row justify-between gap-12 z-10 px-6">
         <div className="w-full lg:w-1/2 flex flex-col justify-between py-10">
           <h1
-            className={`${helvetica.className} text-6xl md:text-8xl font-bold mb-10 text-center`}
+            className={`${helvetica.className} text-4xl md:text-6xl font-bold mb-10 text-center`}
           >
             <InteractiveText text="Contact" />
           </h1>
           <p
-            className={`${helvetica.className} text-3xl md:text-5xl mb-10 text-center`}
+            className={`${helvetica.className} text-3xl md:text-4xl mb-10 text-center`}
           >
             {t("un-projet-dont-vous-voulez-nous-parler")}
           </p>

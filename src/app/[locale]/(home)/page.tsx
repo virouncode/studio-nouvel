@@ -55,22 +55,41 @@ const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
       <Background />
       <section className="container h-full w-full flex items-center justify-center md:justify-end">
         <nav className="text-3xl md:text-6xl flex flex-col font-bold gap-2">
-          <IntlLink href="/image">
-            <InteractiveText
-              text={t("musique-a-limage")}
-              className="cursor-pointer"
-            />
-          </IntlLink>
-          <IntlLink href="/albums">
-            <InteractiveText text={t("albums")} className="cursor-pointer" />
-          </IntlLink>
-
-          <IntlLink href="/equipe">
-            <InteractiveText text={t("lequipe")} className="cursor-pointer" />
-          </IntlLink>
-          <IntlLink href="/contact">
-            <InteractiveText text={t("contact")} className="cursor-pointer" />
-          </IntlLink>
+          <div
+            className="transform translate-y-4 opacity-0 animate-fade-in-up"
+            style={{ animationDelay: "0ms" }}
+          >
+            <IntlLink href="/image">
+              <InteractiveText
+                text={t("musique-a-limage")}
+                className="cursor-pointer"
+              />
+            </IntlLink>
+          </div>
+          <div
+            className="transform translate-y-4 opacity-0 animate-fade-in-up"
+            style={{ animationDelay: "150ms" }}
+          >
+            <IntlLink href="/albums">
+              <InteractiveText text={t("albums")} className="cursor-pointer" />
+            </IntlLink>
+          </div>
+          <div
+            className="transform translate-y-4 opacity-0 animate-fade-in-up"
+            style={{ animationDelay: "300ms" }}
+          >
+            <IntlLink href="/equipe">
+              <InteractiveText text={t("lequipe")} className="cursor-pointer" />
+            </IntlLink>
+          </div>
+          <div
+            className="transform translate-y-4 opacity-0 animate-fade-in-up"
+            style={{ animationDelay: "450ms" }}
+          >
+            <IntlLink href="/contact">
+              <InteractiveText text={t("contact")} className="cursor-pointer" />
+            </IntlLink>
+          </div>
         </nav>
       </section>
       <div className="absolute bottom-8 right-8 flex items-center gap-4">
