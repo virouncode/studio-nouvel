@@ -90,7 +90,7 @@ const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
                     Rémy est un véritable surdoué de la musique, médaillé
                     d&apos;or du Conservatoire de Lille où il étudie le{" "}
                     <strong>piano</strong> et la <strong>clarinette</strong>. Il
-                    obtient par la suite son{""}
+                    obtient par la suite son{" "}
                     <strong>diplôme de Film Scoring à Berklee</strong>, entre 2
                     tournées avec des artistes de renom.
                   </p>
