@@ -25,7 +25,7 @@ export default async function RootLayout({
   setRequestLocale(locale);
   return (
     <html lang={locale}>
-      <body className={`${inter.className}  antialiased`}>
+      <body className={`${inter.className}  antialiased overflow-x-hidden`}>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>
