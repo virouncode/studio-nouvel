@@ -62,7 +62,8 @@ const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
         />
       </h1>
       <section>
-        <div className="flex flex-col md:flex-row justify-between gap-10 xl:gap-28 w-full mx-auto container px-6 pb-20">
+        <div className="flex flex-col md:flex-row justify-between gap-20 md:gap-8 lg:gap-14 xl:gap-28 w-full mx-auto container px-6 pb-20">
+          {/* REMY */}
           <div className="flex flex-col gap-6 md:w-1/3 transform translate-y-4 opacity-0 animate-fade-in-up">
             <div className="relative w-full h-[450px] rounded-lg overflow-hidden">
               <Image
@@ -119,7 +120,7 @@ const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
               )}
             </div>
           </div>
-
+          {/* MAX */}
           <div className="flex flex-col gap-6 md:w-1/3 transform translate-y-4 opacity-0 animate-fade-in-up">
             <div className="relative  w-full h-[450px] rounded-lg overflow-hidden">
               <Image
@@ -181,7 +182,7 @@ const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
               )}
             </div>
           </div>
-
+          {/* ANTONIN */}
           <div className="flex flex-col gap-6 md:w-1/3 transform translate-y-4 opacity-0 animate-fade-in-up">
             <div className="relative w-full h-[450px] rounded-lg overflow-hidden">
               <Image
