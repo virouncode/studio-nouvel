@@ -89,7 +89,7 @@ const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
                     Rémy est un véritable surdoué de la musique, médaillé
                     d&apos;or du Conservatoire de Lille où il étudie le{" "}
                     <strong>piano</strong> et la <strong>clarinette</strong>. Il
-                    obtient par la suite son
+                    obtient par la suite son{""}
                     <strong>diplôme de Film Scoring à Berklee</strong>, entre 2
                     tournées avec des artistes de renom.
                   </p>
@@ -110,7 +110,7 @@ const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
                     artists.
                   </p>
                   <p>
-                    He is highly sought after for his expert command of both
+                    He is highly sought after for his expert command of both{" "}
                     <strong>vintage and modern synthesizers</strong>, as well as
                     his exceptional <strong>arranging skills</strong>, rooted in
                     his love for classical music.
