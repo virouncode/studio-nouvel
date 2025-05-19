@@ -48,7 +48,7 @@ const Header = () => {
         scrolled ? "bg-[#FEFDF1]/90 backdrop-blur-md shadow-sm" : "bg-[#FEFDF1]"
       }`}
     >
-      <header className="h-full flex justify-between items-center px-6 mx-auto container">
+      <header className="max-w-7xl h-full flex justify-between items-center px-6 mx-auto container">
         <div className="flex items-center gap-6 transition-transform hover:scale-105">
           <IntlLink href="/">
             <div className="relative h-[50px] w-[50px]">
