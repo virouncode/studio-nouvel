@@ -4,7 +4,11 @@
     "musique-a-limage": "Musique à l'image",
     "albums": "Albums",
     "lequipe": "Notre équipe",
-    "contact": "Contact"
+    "contact": "Contact",
+    "equipement": "Nos équipements"
+  },
+  "equipe": {
+    "ils-nous-font-confiance": "Ils nous font confiance"
   },
   "contact": {
     "un-projet-dont-vous-voulez-nous-parler": "Un projet dont vous voulez nous parler ?",

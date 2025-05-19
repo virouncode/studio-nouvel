@@ -74,7 +74,7 @@ const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
   setRequestLocale(locale);
   const t = await getTranslations("contact");
   return (
-    <main className="flex flex-col items-center justify-between min-h-[calc(100vh-4rem)] w-full relative py-8 md:py-16">
+    <main className="flex flex-col items-center justify-between min-h-[calc(100vh-4rem)] w-full relative py-8 md:py-32">
       <Background />
       <section className="container h-full w-full flex flex-col lg:flex-row justify-between gap-12 z-10 px-6">
         <div className="w-full lg:w-1/2 flex flex-col justify-between py-10">

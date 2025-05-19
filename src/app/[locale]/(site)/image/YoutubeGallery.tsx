@@ -23,6 +23,7 @@ const videos = [
   { id: "vBmcTYIDTBk", client: "Médecins du Monde" },
   { id: "X2bcXrzO0h4", client: "Diana Boss" },
   { id: "VTU5kTCrrAU", client: "Le Principal" },
+  { id: "iTUznWn8sEk", client: "Power Lips" },
   { id: "dP7M-nMrvwQ", client: "Le Meilleur d'entre nous" },
   { id: "fPeBZaheKfU", client: "Thuasne" },
   { id: "uv9aKF_Tm40", client: "DBN Power Mum" },

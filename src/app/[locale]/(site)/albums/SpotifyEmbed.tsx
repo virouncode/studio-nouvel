@@ -32,6 +32,15 @@ export const SpotifyEmbed = ({ src }: { src: string }) => {
 
 export const AlbumsContent = () => {
   const spotifyUrls = [
+    "https://open.spotify.com/embed/album/0BNgQI8o6GojatTrhbeaQk?utm_source=generator",
+    "https://open.spotify.com/embed/album/0hx5u50Xj93WnRZvuTswAK?utm_source=generator",
+    "https://open.spotify.com/embed/album/6tg44LPdlPF1aP7eAdtikA?utm_source=generator",
+    "https://open.spotify.com/embed/album/1IiRwPFbUPoWfVtKPTJPco?utm_source=generator",
+    "https://open.spotify.com/embed/album/2P79CadC6ZQc8avZZyIlCA?utm_source=generator",
+    "https://open.spotify.com/embed/album/7GbrAWCYUZcyai7Lf6AO6Y?utm_source=generator",
+    "https://open.spotify.com/embed/track/6Dysl0j9DXwmPHQxhA4kK3?utm_source=generator",
+    "https://open.spotify.com/embed/album/3aSFLaujGZAvmECJpwnvua?utm_source=generator",
+    "https://open.spotify.com/embed/album/2cjbGGvEsPjKzQrR1N2vPj?utm_source=generator",
     "https://open.spotify.com/embed/album/1BWlfOYi4WfwUOzsBdjkb1?utm_source=generator",
     "https://open.spotify.com/embed/track/2plJkVTL2FR6Z1R9NfDmDv?utm_source=generator",
     "https://open.spotify.com/embed/album/4jSXmRVS55eMkC9EekheR8?utm_source=generator",

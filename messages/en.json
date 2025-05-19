@@ -4,7 +4,11 @@
     "musique-a-limage": "Music for visual media",
     "albums": "Records",
     "lequipe": "Our team",
-    "contact": "Contact"
+    "contact": "Contact",
+    "equipement": "Our setup"
+  },
+  "equipe": {
+    "ils-nous-font-confiance": "They trust us"
   },
   "contact": {
     "un-projet-dont-vous-voulez-nous-parler": "A project you'd like to tell us about?",
