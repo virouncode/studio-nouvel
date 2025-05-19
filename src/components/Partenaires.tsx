@@ -83,7 +83,7 @@ const Partenaires = () => {
             <CarouselItem className="sm:basis-1/3 md:basis-1/4 lg:basis-1/5">
               <div className="w-full h-48 relative mx-auto">
                 <Image
-                  src="https://et4nxaowl5pxdcdk.public.blob.vercel-storage.com/sisley_logo-mL7U6VD6J9lvV6oWrHJoaCWJSJk3K7.avif"
+                  src="https://et4nxaowl5pxdcdk.public.blob.vercel-storage.com/sisley_logo-40VA7t0GkurIminFRJYimPQvMriZ7D.avif"
                   alt="logo-sisley"
                   fill
                   quality={100}
