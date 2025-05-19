@@ -84,10 +84,10 @@ const BackgroundVideo = () => {
 
     if (screenWidth < 550) {
       // Very narrow screens - make it extremely large
-      iframe.style.width = "300vw"; // 4x viewport width
-      iframe.style.height = "300vh"; // 4x viewport height
-      iframe.style.minWidth = "300vw";
-      iframe.style.minHeight = "300vh";
+      iframe.style.width = "400vw"; // 4x viewport width
+      iframe.style.height = "400vh"; // 4x viewport height
+      iframe.style.minWidth = "400vw";
+      iframe.style.minHeight = "400vh";
     } else if (screenAspect > videoAspect) {
       // Screen is wider than video - prioritize width coverage
       iframe.style.width = "100vw"; // 2x viewport width
