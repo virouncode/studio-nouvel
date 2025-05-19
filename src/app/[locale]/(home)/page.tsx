@@ -3,6 +3,7 @@ import LocaleButton from "@/components/buttons/locale-button";
 import InteractiveText from "@/components/InteractiveText";
 import MouseTrackingNav from "@/components/MouseTrackingNav";
 import SoundToggleButton from "@/components/SoundToggleButton";
+import { Button } from "@/components/ui/button";
 import VideoSoundProvider from "@/components/VideoSoundProvider";
 import { Link as IntlLink } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
@@ -110,14 +111,16 @@ const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
           </section>
 
           <div className="absolute bottom-8 right-8 flex items-center gap-4 z-10">
-            <SoundToggleButton />
             <LocaleButton className="bg-white text-black border-slate-300 border hover:bg-slate-200" />
+            <SoundToggleButton />
             <Link
               href="https://www.instagram.com/studio_nouvel/#"
               className="hover:opacity-80 text-white"
               target="_blank"
             >
-              <Instagram size={30} />
+              <Button variant="outline" size="icon">
+                <Instagram size={30} color="black" />
+              </Button>
             </Link>
           </div>
         </MouseTrackingNav>
