@@ -161,7 +161,7 @@ const Header = () => {
           </div>
           {/***************** Mobile navigation *****************/}
           <div
-            className={`flex items-center justify-center fixed top-16 left-0 right-0 bg-background shadow-lg h-[calc(100vh-4rem)] text-6xl px-4 ${
+            className={`flex items-center justify-center fixed top-16 left-0 right-0 bg-background shadow-lg h-[calc(100vh-4rem)] text-3xl px-4 ${
               isMobileNavOpen
                 ? "translate-x-0 opacity-100"
                 : "translate-x-full opacity-0"

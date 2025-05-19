@@ -8,63 +8,48 @@ const BackgroundVideo = () => {
   const vimeoPlayerRef = useRef<Player | null>(null);
   const { isMuted } = useVideoSound();
 
+  // Initialize player
   useEffect(() => {
-    if (containerRef.current) {
-      // Initialize Vimeo player with streaming options
-      vimeoPlayerRef.current = new Player(containerRef.current, {
-        id: 1058212985,
-        background: true,
-        autoplay: true,
-        loop: true,
-        muted: true, // Always start muted
-        responsive: true,
-        dnt: true, // Do Not Track
-        controls: false,
-        autopause: false,
-        playsinline: true,
-        title: false,
-        byline: false,
-        portrait: false,
-        speed: true,
-        quality: "auto", // Let Vimeo automatically adjust quality based on connection
+    if (!containerRef.current) return;
+
+    // Create the player with minimal options first
+    vimeoPlayerRef.current = new Player(containerRef.current, {
+      id: 1058212985,
+      background: true,
+      autoplay: true,
+      loop: true,
+      muted: true,
+      controls: false,
+      responsive: false,
+      dnt: true,
+      autopause: false,
+      playsinline: true,
+      title: false,
+      byline: false,
+      portrait: false,
+    });
+
+    // Set up event listeners
+    const player = vimeoPlayerRef.current;
+
+    player.on("loaded", () => {
+      console.log("Video loaded");
+
+      // Once loaded, play the video
+      player.play().catch((error) => {
+        console.error("Error playing video:", error);
       });
 
-      // Add event listeners for better debugging and user experience
-      if (vimeoPlayerRef.current) {
-        vimeoPlayerRef.current.on("bufferstart", () => {
-          console.log("Video buffering started");
-        });
-
-        vimeoPlayerRef.current.on("bufferend", () => {
-          console.log("Video buffering ended");
-        });
-
-        vimeoPlayerRef.current.on("play", () => {
-          console.log("Video started playing");
-        });
-
-        vimeoPlayerRef.current.on("loaded", () => {
-          console.log("Video loaded");
-        });
-
-        // Set up streaming by configuring the player to use minimal buffering
-        // This makes the player start playback as soon as possible without waiting for the entire video
-        vimeoPlayerRef.current.setCurrentTime(0).then(() => {
-          // Start playing immediately after setting the time to 0
-          vimeoPlayerRef.current?.play().catch((error) => {
-            console.error("Error playing video:", error);
-          });
-        });
-
-        // Configure the player to use a small buffer size
-        // This is done by setting the quality to auto, which will adjust based on network conditions
-        vimeoPlayerRef.current.setQuality("auto").catch((error) => {
-          console.error("Error setting quality:", error);
-        });
+      // Apply custom styles to the iframe directly
+      if (containerRef.current) {
+        const iframe = containerRef.current.querySelector("iframe");
+        if (iframe) {
+          applyIframeStyles(iframe);
+        }
       }
-    }
+    });
 
-    // Cleanup when component unmounts
+    // Cleanup
     return () => {
       if (vimeoPlayerRef.current) {
         vimeoPlayerRef.current.destroy();
@@ -72,34 +57,90 @@ const BackgroundVideo = () => {
     };
   }, []);
 
-  // Effect to handle mute state changes
-  useEffect(() => {
-    console.log("BackgroundVideo: isMuted changed to:", isMuted);
-    if (vimeoPlayerRef.current) {
-      if (isMuted) {
-        console.log("BackgroundVideo: Setting volume to 0");
-        vimeoPlayerRef.current.setVolume(0);
-      } else {
-        console.log("BackgroundVideo: Setting volume to 1");
-        vimeoPlayerRef.current.setVolume(0.7);
-      }
+  // Function to apply consistent styles to the iframe
+  const applyIframeStyles = (iframe: HTMLElement) => {
+    // Basic positioning
+    iframe.style.position = "absolute";
+    iframe.style.top = "50%";
+    iframe.style.left = "50%";
+    iframe.style.transform = "translate(-50%, -50%)";
+
+    // Always use cover to ensure no background shows
+    iframe.style.objectFit = "cover";
+
+    // Get video dimensions from the iframe if possible
+    const videoWidth = iframe.clientWidth || window.innerWidth;
+    const videoHeight = iframe.clientHeight || window.innerHeight;
+    const videoAspect = videoWidth / videoHeight;
+
+    // Get screen dimensions
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    const screenAspect = screenWidth / screenHeight;
+
+    // Calculate dimensions to ensure complete coverage
+    // We want to make sure the video is always larger than the viewport
+    // in both dimensions to avoid any background showing
+
+    if (screenWidth < 550) {
+      // Very narrow screens - make it extremely large
+      iframe.style.width = "300vw"; // 4x viewport width
+      iframe.style.height = "300vh"; // 4x viewport height
+      iframe.style.minWidth = "300vw";
+      iframe.style.minHeight = "300vh";
+    } else if (screenAspect > videoAspect) {
+      // Screen is wider than video - prioritize width coverage
+      iframe.style.width = "100vw"; // 2x viewport width
+      iframe.style.height = "100vh"; // 2x viewport height
+      iframe.style.minWidth = "100vw";
+      iframe.style.minHeight = "100vh";
     } else {
-      console.log("BackgroundVideo: vimeoPlayerRef.current is null");
+      // Screen is taller than video - prioritize height coverage
+      iframe.style.width = "200vw"; // 2x viewport width
+      iframe.style.height = "200vh"; // 2x viewport height
+      iframe.style.minWidth = "200vw";
+      iframe.style.minHeight = "200vh";
+    }
+  };
+
+  // Handle mute state changes
+  useEffect(() => {
+    if (!vimeoPlayerRef.current) return;
+
+    if (isMuted) {
+      vimeoPlayerRef.current.setVolume(0);
+    } else {
+      vimeoPlayerRef.current.setVolume(0.7);
     }
   }, [isMuted]);
 
-  // Log when the component is mounted
+  // Handle window resize to ensure video always fills screen
   useEffect(() => {
-    console.log("BackgroundVideo mounted");
+    const handleResize = () => {
+      if (!containerRef.current) return;
+
+      const iframe = containerRef.current.querySelector("iframe");
+      if (iframe) {
+        applyIframeStyles(iframe);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
-    <div className="fixed inset-0 -z-10 h-100dvh overflow-hidden bg-[#FEFDF1]">
+    <div className="fixed inset-0 -z-10 h-screen w-screen overflow-hidden">
       <div
         ref={containerRef}
-        className="absolute top-0 left-0 w-full h-full"
-      ></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent pointer-events-none"></div>
+        className="absolute inset-0 w-full h-full overflow-hidden"
+        style={{
+          position: "relative",
+          height: "100vh",
+          width: "100vw",
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/30 to-transparent pointer-events-none" />
     </div>
   );
 };
