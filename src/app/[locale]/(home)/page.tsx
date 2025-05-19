@@ -57,7 +57,7 @@ const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
     <main className="flex flex-col items-center justify-between h-dvh w-full relative p-10 md:p-24">
       <VideoSoundProvider>
         <BackgroundVideo />
-        <MouseTrackingNav timeout={1000}>
+        <MouseTrackingNav timeout={2000}>
           {/* Semi-transparent overlay for better text visibility */}
           <div className="absolute inset-0 bg-white/60 transition-opacity duration-500 z-0"></div>
           <section className="container h-full w-full flex items-center justify-center md:justify-end relative z-10">
