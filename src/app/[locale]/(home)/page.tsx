@@ -117,8 +117,15 @@ const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
               href="https://www.instagram.com/studio_nouvel/#"
               className="hover:opacity-80 text-white"
               target="_blank"
+              title="Instagram"
+              aria-label="Lien vers Instagram"
             >
-              <Button variant="outline" size="icon">
+              <Button
+                variant="outline"
+                size="icon"
+                aria-label="Instagram"
+                title="Instagram"
+              >
                 <Instagram size={30} color="black" />
               </Button>
             </Link>

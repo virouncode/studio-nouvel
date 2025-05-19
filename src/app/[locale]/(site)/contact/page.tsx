@@ -4,7 +4,6 @@ import InteractiveText from "@/components/InteractiveText";
 import { routing } from "@/i18n/routing";
 import { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import localFont from "next/font/local";
 
 export const generateMetadata = async ({
   params,
@@ -40,31 +39,6 @@ export const generateMetadata = async ({
   };
 };
 
-const helvetica = localFont({
-  src: [
-    {
-      path: "../../../../../public/fonts/HelveticaNeueLight.otf",
-      weight: "200",
-      style: "light",
-    },
-    {
-      path: "../../../../../public/fonts/HelveticaNeueMedium.otf",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "../../../../../public/fonts/HelveticaNeueBold.otf",
-      weight: "700",
-      style: "bold",
-    },
-    {
-      path: "../../../../../public/fonts/HelveticaNeueBlack.otf",
-      weight: "800",
-      style: "black",
-    },
-  ],
-});
-
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
@@ -78,19 +52,13 @@ const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
       <Background />
       <section className="container h-full w-full flex flex-col lg:flex-row justify-between gap-12 z-10 px-6">
         <div className="w-full lg:w-1/2 flex flex-col justify-between py-10">
-          <h1
-            className={`${helvetica.className} text-6xl md:text-7xl font-bold mb-10 text-center`}
-          >
+          <h1 className={`text-6xl md:text-7xl font-bold mb-10 text-center`}>
             <InteractiveText text="Contact" />
           </h1>
-          <p
-            className={`${helvetica.className} text-3xl md:text-4xl mb-10 text-center`}
-          >
+          <p className={`text-3xl md:text-4xl mb-10 text-center font-bold`}>
             {t("un-projet-dont-vous-voulez-nous-parler")}
           </p>
-          <p
-            className={`${helvetica.className}  text-xl md:text-3xl text-center mb-10`}
-          >
+          <p className={`text-xl md:text-3xl text-center mb-10 font-bold`}>
             {t("contactez")}{" "}
             <span className="text-[#EB4642]">Studio Nouvel</span>
           </p>
