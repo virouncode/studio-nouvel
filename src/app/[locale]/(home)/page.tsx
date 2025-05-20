@@ -1,7 +1,7 @@
+import MouseTrackingNav from "@/app/[locale]/(home)/MouseTrackingNav";
 import BackgroundVideo from "@/components/backgrounds/BackgroundVideo";
 import LocaleButton from "@/components/buttons/locale-button";
 import InteractiveText from "@/components/InteractiveText";
-import MouseTrackingNav from "@/components/MouseTrackingNav";
 import { Button } from "@/components/ui/button";
 import { Link as IntlLink } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";

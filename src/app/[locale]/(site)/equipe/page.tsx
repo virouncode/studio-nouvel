@@ -1,6 +1,6 @@
-import EquipmentSection from "@/components/EquipmentSection";
+import EquipmentSection from "@/app/[locale]/(site)/equipe/EquipmentSection";
+import Partenaires from "@/app/[locale]/(site)/equipe/Partenaires";
 import InteractiveText from "@/components/InteractiveText";
-import Partenaires from "@/components/Partenaires";
 import { routing } from "@/i18n/routing";
 import { Instagram } from "lucide-react";
 import { Metadata } from "next";

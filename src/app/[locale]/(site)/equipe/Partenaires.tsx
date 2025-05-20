@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/carousel";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import InteractiveText from "./InteractiveText";
+import InteractiveText from "../../../../components/InteractiveText";
 
 const Partenaires = () => {
   const t = useTranslations("equipe");

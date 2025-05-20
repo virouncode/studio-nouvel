@@ -1,7 +1,7 @@
 "use client";
 
 import { useVimeo } from "@/hooks/use-vimeo";
-import SoundToggleButton from "../SoundToggleButton";
+import SoundToggleButton from "../../app/[locale]/(home)/SoundToggleButton";
 
 type BackgroundVideoProps = {
   videoId: string;
