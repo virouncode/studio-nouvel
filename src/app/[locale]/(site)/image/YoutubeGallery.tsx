@@ -20,7 +20,7 @@ const videos = [
   { id: "Tf3Xy7eNi8c", client: "Sisley", description: "", type: "yt" },
   {
     id: "vBmcTYIDTBk",
-    idVimeo: "1086060399?h=0c93c63dfb",
+    idVimeo: "1086060399",
     client: "Médecins du Monde",
     description: "",
     type: "vimeo",
@@ -77,7 +77,7 @@ export default function YouTubeGallery() {
                 {description ?? "Descriptif"}
               </DialogDescription>
             </DialogHeader>
-            <div className="w-full max-w-5xl mx-auto h-[200px] sm:h-[400px] md:h-[600px] border rounded-xl overflow-hidden">
+            <div className="w-full max-w-5xl mx-auto h-[200px] sm:h-[400px] md:h-[600px] border rounded-xl overflow-hidden bg-black">
               {type === "yt" ? (
                 <iframe
                   width="100%"
@@ -93,15 +93,19 @@ export default function YouTubeGallery() {
                   loading="lazy"
                 />
               ) : (
-                <div className="h-full w-full">
-                  <iframe
-                    src={`https://player.vimeo.com/video/${idVimeo}&amp;badge=0&amp;autoplay=1&amp;player_id=0&amp;app_id=58479`}
-                    style={{ width: "100%", height: "100%", border: "none" }}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    title="Pub Medecin du monde"
-                    referrerPolicy="strict-origin-when-cross-origin"
-                  />
-                </div>
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={
+                    `https://player.vimeo.com/video/${idVimeo}` +
+                    "?h=0c93c63dfb&badge=0&autoplay=1&player_id=0&app_id=58479"
+                  }
+                  title={`Vidéo pour ${client}`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                  loading="lazy"
+                />
               )}
             </div>
           </DialogContent>
