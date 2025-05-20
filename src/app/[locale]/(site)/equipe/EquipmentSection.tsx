@@ -148,7 +148,7 @@ const EquipmentSection = ({ title }: EquipmentSectionProps) => {
     <section className="w-full py-16 bg-[#FEFDF1]">
       <div className="container mx-auto px-6">
         <h2 className="mb-12 text-center">
-          <InteractiveText text={title} className="text-6xl md:text-7xl" />
+          <InteractiveText text={title} className="text-5xl md:text-7xl" />
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">

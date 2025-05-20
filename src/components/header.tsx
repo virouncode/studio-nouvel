@@ -161,7 +161,7 @@ const Header = () => {
           </div>
           {/***************** Mobile navigation *****************/}
           <div
-            className={`flex items-center justify-center fixed top-16 left-0 right-0 bg-background shadow-lg h-[calc(100vh-4rem)] text-3xl px-4 ${
+            className={`text-center gap-6 flex flex-col items-center justify-center fixed top-16 left-0 right-0 bg-background shadow-lg h-[calc(100vh-4rem)] text-3xl px-4 ${
               isMobileNavOpen
                 ? "translate-x-0 opacity-100"
                 : "translate-x-full opacity-0"
@@ -169,8 +169,16 @@ const Header = () => {
             role="navigation"
             aria-label="Mobile navigation"
           >
+            <div className="w-[100px] md:w-[200px]  h-[100px] md:h-[200px] relative">
+              <Image
+                src="/img/logo_studio_black.png"
+                alt="Logo"
+                fill
+                quality={100}
+              />
+            </div>
             <div
-              className="flex flex-col gap-4 "
+              className="flex flex-col gap-2"
               onClick={() => setIsMobileNavOpen(false)}
             >
               <IntlLink href="/">

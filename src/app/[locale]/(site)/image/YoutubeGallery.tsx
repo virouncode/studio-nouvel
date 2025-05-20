@@ -1,5 +1,3 @@
-"use client";
-
 import InteractiveText from "@/components/InteractiveText";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Card, CardContent } from "@/components/ui/card";
@@ -15,25 +13,25 @@ import Image from "next/image";
 import "./youtube-gallery.css";
 
 const videos = [
-  { id: "bqTG-xwgcH4", client: "WWF" },
-  { id: "tYaH83TmzSc", client: "Sosh" },
-  { id: "87aQ_MX8wIY", client: "Oxford" },
-  { id: "dg89O205WRc", client: "Réfugiés" },
-  { id: "Tf3Xy7eNi8c", client: "Sisley" },
-  { id: "vBmcTYIDTBk", client: "Médecins du Monde" },
-  { id: "X2bcXrzO0h4", client: "Diana Boss" },
-  { id: "VTU5kTCrrAU", client: "Le Principal" },
-  { id: "iTUznWn8sEk", client: "Power Lips" },
-  { id: "dP7M-nMrvwQ", client: "Le Meilleur d'entre nous" },
-  { id: "fPeBZaheKfU", client: "Thuasne" },
-  { id: "uv9aKF_Tm40", client: "DBN Power Mum" },
-  { id: "9zi-uKzVcDc", client: "A girl at the fence" },
+  { id: "bqTG-xwgcH4", client: "WWF", description: "" },
+  { id: "tYaH83TmzSc", client: "Sosh", description: "" },
+  { id: "87aQ_MX8wIY", client: "Oxford", description: "" },
+  { id: "dg89O205WRc", client: "Réfugiés", description: "" },
+  { id: "Tf3Xy7eNi8c", client: "Sisley", description: "" },
+  { id: "vBmcTYIDTBk", client: "Médecins du Monde", description: "" },
+  { id: "X2bcXrzO0h4", client: "Diana Boss", description: "" },
+  { id: "VTU5kTCrrAU", client: "Le Principal", description: "" },
+  { id: "iTUznWn8sEk", client: "Power Lips", description: "" },
+  { id: "dP7M-nMrvwQ", client: "Le Meilleur d'entre nous", description: "" },
+  { id: "fPeBZaheKfU", client: "Thuasne", description: "" },
+  { id: "uv9aKF_Tm40", client: "DBN Power Mum", description: "" },
+  { id: "9zi-uKzVcDc", client: "A girl at the fence", description: "" },
 ];
 
 export default function YouTubeGallery() {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 container mx-auto sm:px-6">
-      {videos.map(({ id, client }) => (
+      {videos.map(({ id, client, description }) => (
         <Dialog key={id}>
           <DialogTrigger asChild>
             <Card className="gallery-item overflow-hidden group relative p-0 rounded-none border-none shadow-none cursor-pointer hover:scale-[0.98] transition-all duration-800">
@@ -59,7 +57,9 @@ export default function YouTubeGallery() {
           <DialogContent className="sm:max-w-none w-[95%] dialog-content-horizontal">
             <DialogHeader>
               <DialogTitle>{client}</DialogTitle>
-              <DialogDescription>Descriptif</DialogDescription>
+              <DialogDescription>
+                {description ?? "Descriptif"}
+              </DialogDescription>
             </DialogHeader>
             <div className="w-full max-w-7xl mx-auto h-[200px] sm:h-[400px] md:h-[600px] border rounded-xl overflow-hidden">
               <iframe

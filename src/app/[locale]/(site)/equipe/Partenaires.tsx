@@ -19,7 +19,7 @@ const Partenaires = () => {
         <h2 className="mb-12 text-center">
           <InteractiveText
             text={t("ils-nous-font-confiance")}
-            className="text-6xl md:text-7xl"
+            className="text-5xl md:text-7xl"
           />
         </h2>
         <Carousel
