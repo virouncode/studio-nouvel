@@ -1,8 +1,8 @@
 import Background from "@/components/backgrounds/Background";
 import { routing } from "@/i18n/routing";
-import { Contact } from "lucide-react";
 import { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import Contact from "./Contact";
 import GoogleMap from "./GoogleMap";
 
 export const generateMetadata = async ({
