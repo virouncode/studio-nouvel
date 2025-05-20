@@ -55,7 +55,7 @@ const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
   const t = await getTranslations("header");
 
   return (
-    <main className="flex flex-col items-center justify-between h-dvh w-full relative p-6 md:p-10">
+    <main className="flex flex-col items-center justify-between h-dvh w-full relative p-6 md:p-10 overflow-x-hidden">
       <BackgroundVideo videoId="1058212985" />
       <MouseTrackingNav timeout={2000}>
         {/* Semi-transparent overlay for better text visibility */}
