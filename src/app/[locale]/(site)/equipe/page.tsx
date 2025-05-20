@@ -52,14 +52,32 @@ const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("header");
+  const t2 = await getTranslations("equipe");
   return (
     <main className="flex flex-col items-center justify-between min-h-[calc(100vh-4rem)] w-full relative  bg-[#FEFDF1]">
       <h1>
         <InteractiveText
           text={t("lequipe")}
-          className="text-5xl md:text-7xl my-14"
+          className="text-5xl md:text-7xl mt-14"
         />
       </h1>
+      <div className="flex flex-col gap-4 my-10 px-6">
+        <p className="max-w-prose mx-auto hyphens-auto text-lg">
+          {t2("cree-en-2021")}{" "}
+          <span className="text-destructive font-bold">
+            {t2("studio-nouvel")}
+          </span>{" "}
+          {t2(
+            "est-une-equipe-de-compositeurs-musiciens-et-ingenieurs-du-son-au-service-de-vos-projets-musicaux"
+          )}
+        </p>
+        <p className="max-w-prose mx-auto hyphens-auto text-lg">
+          {t2(
+            "ep-albums-musique-a-limage-doublage-creation-arrangement-enregistrement-mix-nous-realisons-de-la-musique-de-qualite-pour-tous-types-de-support"
+          )}
+        </p>
+      </div>
+
       <Team />
       <TeamPhoto />
       <Partenaires />

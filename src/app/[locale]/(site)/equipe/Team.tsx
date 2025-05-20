@@ -174,8 +174,7 @@ const Team = () => {
                   where he began{" "}
                   <strong>composing, recording, and mixing </strong>for numerous
                   artists across genres ranging from <strong>jazz</strong> to{" "}
-                  <strong>metal</strong> to
-                  <strong>pop music</strong>.
+                  <strong>metal</strong> to <strong>pop music</strong>.
                 </p>
                 <p>
                   His dual role as a <strong>seasoned studio musician</strong>{" "}
