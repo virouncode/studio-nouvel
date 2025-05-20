@@ -41,10 +41,12 @@ const MouseTrackingNav = ({
 
     // Add event listener
     window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("scroll", handleMouseMove);
 
     // Cleanup
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("scroll", handleMouseMove);
       if (timerRef.current) {
         clearTimeout(timerRef.current);
       }
