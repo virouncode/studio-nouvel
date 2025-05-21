@@ -58,10 +58,10 @@ const page = async ({ params }: { params: Promise<{ locale: string }> }) => {
       <h1>
         <InteractiveText
           text={t("lequipe")}
-          className="text-5xl md:text-7xl mt-14"
+          className="text-5xl md:text-7xl mt-14 transform translate-y-4 opacity-0 animate-fade-in-up"
         />
       </h1>
-      <div className="flex flex-col gap-4 my-10 px-6">
+      <div className="flex flex-col gap-4 my-10 px-6 transform translate-y-4 opacity-0 animate-fade-in-up">
         <p className="max-w-prose mx-auto hyphens-auto text-lg">
           {t2("cree-en-2021")}{" "}
           <span className="text-destructive font-bold">
