@@ -11,8 +11,8 @@ export const generateMetadata = async ({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> => {
   const { locale } = await params;
-  const urlFr = `https://www.studionouvel.com/fr/contact`;
-  const urlEn = `https://www.studionouvel.com/en/contact`;
+  const urlFr = `https://www.studionouvel.com/fr/contactez-nous`;
+  const urlEn = `https://www.studionouvel.com/en/contact-us`;
   return {
     title: "Contact | Studio Nouvel",
     description:
