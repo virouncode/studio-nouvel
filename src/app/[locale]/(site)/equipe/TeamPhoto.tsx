@@ -7,7 +7,7 @@ const TeamPhoto = () => {
         src="/img/groupe_rires.jpg"
         alt="Studio Nouvel"
         fill
-        className="object-cover"
+        className="object-cover object-top"
       />
     </section>
   );

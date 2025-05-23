@@ -96,8 +96,7 @@ const Team = () => {
                   </strong>
                   . Aujourd&apos;hui c&apos;est dans l&apos;
                   <strong>urbain</strong> et l&apos;
-                  <strong>electro</strong> que Max s&apos;exprime pleinement
-                  aujourd&apos;hui.
+                  <strong>electro</strong> que Max s&apos;exprime pleinement.
                 </p>
                 <p>
                   Sa pratique <strong>unique</strong> et très personnelle des
