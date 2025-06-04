@@ -35,6 +35,7 @@ export const generateMetadata = async ({
       languages: {
         en: urlEn,
         fr: urlFr,
+        "x-default": "https://www.studionouvel.com",
       },
     },
   };
